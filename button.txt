@@ -1,0 +1,102 @@
+
+
+.button {
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 18px;
+  padding: 15px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-top:195px;
+  margin-left:595px;
+  
+  
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+
+
+
+
+
+
+
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type = "text/css" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <h2>Add Players</h2>
+        <form method="POST" enctype="multipart/form-data" class="post-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+        <input type="submit" value="Submit" class="btn btn-secondary btn-block">
+        </form>    
+        <script src="" async defer></script>
+    </body>
+</html>
+
+
+
+
+            <a href="{% url 'add_players' %}">
+                <button class="button"  formaction="{% url 'add_players' %}"><span>Add Players </span></button>
+            </a>       
+
+
+
+
+
+@login_required
+def add_players(request):
+    if request.method == 'POST':
+        form = PlayerForm(request.POST, request.FILES)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            profile_pic = form.cleaned_data['profile_pic']
+            position = form.cleaned_data['position']
+            country = form.cleaned_data['country']
+            joined_date = form.cleaned_data['joined_date']
+            form.save()
+            return redirect('team')
+    else:
+        form = PlayerForm()
+    return render(request, 'team/add_players.html', {'form': form})
+
+

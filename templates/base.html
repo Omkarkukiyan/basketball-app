@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title>BasketBall</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">         
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type = "text/css" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <img style="display: inline;" src="{% static 'img/logo.png' %}"/>
+                </div>
+                <ul>
+                {% if user.is_authenticated %}
+                    <li><a class="navbar-brand mr-4" href="{% url 'home' %}">Home</a></li>
+                    <li><a class="navbar-brand mr-4" href="{% url 'tournament' %}">Tournaments</a></li>
+                    <li><a class="navbar-brand mr-4" href="{% url 'team' %}">Team</a></li>
+                    <li><a class="navbar-brand mr-4" href="{% url 'about' %}">About Us</a></li>
+                    <li><a class="navbar-brand mr-4" href="{% url 'faq' %}">FAQ</a></li>
+                    <li><a class="navbar-brand mr-4" href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a class="navbar-brand mr-4" href="{% url 'login' %}">Login</a></li>
+                    <li><a class="navbar-brand mr-4" href="{% url 'register' %}">Register</a></li>
+                {% endif %}
+                </ul>
+             </div>
+        </header>     
+            <div class="slider">
+                {% block content %}{% endblock %}
+            </div>
+
+               
+    </body>
+</html>
+

@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+*{
+  margin : 0;
+  padding: 0;
+  font-family: Century 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
+}
+
+
+
+/*
+header{
+    background-image: url('/static/img1.png');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+*/
+
+
+.header img {
+    float: left;
+    width: 100px;
+    height: 100px;
+    
+}
+
+ul{
+    float: right;
+    list-style-type: none;
+    margin-top: 30px;
+}
+
+ul li{
+    display: inline-block; 
+}
+
+ul li a{
+    text-decoration: none;
+    color: bisque;
+    padding: 5px 20px;
+    border: 1px solid transparent;
+    font-size: x-large;
+    transition: 0.6s ease;
+}
+
+ul li a:hover{
+    color: rgb(168, 151, 151); 
+} 
+
+.logo img{
+    float: left;
+    width: 150px;
+    height: auto;
+}
+
+.container{
+    max-width: 1200px;
+    margin: auto;
+    }
+
+.slider{
+    height: 100vh;
+    width: 100%;
+    background-image: url('/static/img/img1.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: 5s;
+
+    animation-name: animate;
+    animation-direction: alternate-reverse;
+    animation-duration: 30s;
+    animation-fill-mode:forwards;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes animate{
+    0%{
+        background-image: url('/static/img/img1.png');
+    }20%{
+        background-image: url('/static/img/img2.jpg');
+    }40%{
+        background-image: url('/static/img/img3.jpg');
+    }60%{
+        background-image: url('/static/img/img4.jpg');
+    }80%{
+        background-image: url('/static/img/img5.jpg');
+    }
+}
+
+
+.team-section{
+    overflow: hidden;
+    text-align: center;
+    background: #34495e;
+    padding: 60px;
+}
+
+.team-section .container .logo{
+    float: left;
+    width: 0px;
+    height: auto;
+    position: relative;
+    bottom: 70px;
+}  
+
+.team-section .container ul{
+    height: auto;
+    position: relative;
+    bottom: 50px;
+}
+
+.team-section h1{
+    padding-top: 70px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    color: whitesmoke;
+    font-size: 40px;
+    text-align: center;
+  
+    
+}
+
+
+.ps{
+   margin-bottom: 40px; 
+}
+
+.ps a{
+    display: inline-block;
+    margin: 0 30px;
+    width: 160px;
+    height: 160px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.ps a img{
+    width: 100%;
+    filter: grayscale(100%);
+    transition: 0.4s all;
+}
+
+.ps a:hover > img{
+    filter: none;
+}
+
+.section{
+    width: 600px;
+    margin: auto;
+    font-size: 20px;
+    color: wheat;
+    text-align: justify;
+    height: 0;
+    overflow: hidden;
+}
+
+.section:target{
+    height: auto;
+}
+
+.name{
+     display: block;
+     margin-bottom: 30px;
+     text-align: center;
+     text-transform: uppercase;
+     font-size: 22px;
+}
+
